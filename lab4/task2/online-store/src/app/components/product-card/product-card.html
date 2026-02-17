@@ -1,0 +1,35 @@
+<div class="product-card">
+  <div class="product-image">
+    <img [src]="product.image" [alt]="product.name">
+  </div>
+  
+  <div class="product-info">
+    <h3 class="product-title">{{ product.name }}</h3>
+    
+    <p class="product-description">{{ product.description }}</p>
+    
+    <div class="product-rating">
+      <span *ngFor="let star of getStarsArray()" class="star">
+        {{ isStarFilled(star) ? '⭐' : '☆' }}
+      </span>
+      <span class="rating-value">({{ product.rating }})</span>
+    </div>
+    
+    <div class="product-price">{{ product.price | number }} ₸</div>
+    
+    <div class="product-actions">
+      <a [href]="product.link" target="_blank" class="btn btn-primary">
+        View on Kaspi.kz
+      </a>
+      
+      <div class="share-buttons">
+        <button (click)="shareOnWhatsApp()" class="btn btn-success" title="Share on WhatsApp">
+          WhatsApp
+        </button>
+        <button (click)="shareOnTelegram()" class="btn btn-info" title="Share on Telegram">
+          Telegram
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
