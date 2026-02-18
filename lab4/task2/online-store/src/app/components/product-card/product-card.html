@@ -9,10 +9,15 @@
     <p class="product-description">{{ product.description }}</p>
     
     <div class="product-rating">
-      <span *ngFor="let star of getStarsArray()" class="star">
-        {{ isStarFilled(star) ? '⭐' : '☆' }}
-      </span>
-      <span class="rating-value">({{ product.rating }})</span>
+      <div class="stars">
+        <span *ngFor="let star of getStarsArray()" 
+              class="star" 
+              [class.filled]="isStarFilled(star)"
+              [class.empty]="!isStarFilled(star)">
+          {{ isStarFilled(star) ? '★' : '☆' }}
+        </span>
+      </div>
+      <span class="rating-value">{{ product.rating }}/5</span>
     </div>
     
     <div class="product-price">{{ product.price | number }} ₸</div>
@@ -23,10 +28,10 @@
       </a>
       
       <div class="share-buttons">
-        <button (click)="shareOnWhatsApp()" class="btn btn-success" title="Share on WhatsApp">
+        <button (click)="shareOnWhatsApp()" class="btn btn-success">
           WhatsApp
         </button>
-        <button (click)="shareOnTelegram()" class="btn btn-info" title="Share on Telegram">
+        <button (click)="shareOnTelegram()" class="btn btn-info">
           Telegram
         </button>
       </div>
