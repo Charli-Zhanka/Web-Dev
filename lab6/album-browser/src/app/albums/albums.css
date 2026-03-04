@@ -1,0 +1,48 @@
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 18px auto;
+  max-width: 900px;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 14px;
+  margin-bottom: 12px;
+  border-radius: 14px;
+  background: #0f0f0f;
+  border: 1px solid rgba(255, 47, 162, .45);
+  transition: .25s;
+}
+
+.list-item:hover {
+  box-shadow: 0 0 18px rgba(255, 47, 162, .25);
+}
+
+.album-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #fff;
+  min-width: 0;
+}
+
+.pill {
+  color: #000;
+  background: #ff2fa2;
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-weight: 900;
+  flex: 0 0 auto;
+}
+
+.album-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: .95;
+}

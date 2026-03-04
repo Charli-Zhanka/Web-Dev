@@ -11,7 +11,8 @@ export class ProductService {
     { id: 1, name: 'Смартфоны' },
     { id: 2, name: 'Ноутбуки' },
     { id: 3, name: 'Наушники' },
-    { id: 4, name: 'Планшеты' }
+    { id: 4, name: 'Планшеты' },
+    {id: 5, name: 'Компьютеры'}
   ];
   private products: Product[] = [
    {
@@ -88,7 +89,7 @@ export class ProductService {
       rating: 4.9,
       image: 'https://resources.cdn-kaspi.kz/img/m/p/h6f/hba/64231854538782.jpg?format=gallery-medium',
       link: 'https://kaspi.kz/shop/p/lenovo-ideapad-3-15-6-8-gb-ssd-256-gb-dos-15igl05-81wq00errk-102715483/?c=750000000',
-      categoryId: 2,
+      categoryId: 5,
       likes: 614
     },
     {

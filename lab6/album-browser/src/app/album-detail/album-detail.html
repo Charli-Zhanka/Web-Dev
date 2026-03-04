@@ -1,0 +1,18 @@
+<h2 class="title">Album Detail</h2>
+
+<p *ngIf="loading" class="muted">Loading...</p>
+<p *ngIf="!loading && errorMsg" class="error">{{ errorMsg }}</p>
+
+<div *ngIf="!loading && album" class="card">
+  <p><b>ID:</b> {{ album.id }}</p>
+  <p><b>User ID:</b> {{ album.userId }}</p>
+
+  <label class="label">Title</label>
+  <input class="input" [(ngModel)]="titleDraft" />
+
+  <div class="actions">
+    <button class="btn" (click)="save()">Save</button>
+    <a class="btn ghost" [routerLink]="['/albums', album.id, 'photos']">View Photos</a>
+    <a class="btn ghost" routerLink="/albums">Back</a>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+.label { display:block; margin-top: 10px; margin-bottom: 6px; opacity:.9; }
+
+.input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 47, 162, .55);
+  background: #000;
+  color: #fff;
+  outline: none;
+}
+
+.input:focus {
+  box-shadow: 0 0 14px rgba(255, 47, 162, .35);
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}

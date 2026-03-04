@@ -101,6 +101,15 @@ export class ProductList {
       rating: 4.7,
       image: 'https://resources.cdn-kaspi.kz/img/m/p/pbc/peb/3848531.jpeg?format=gallery-medium',
       link: 'https://kaspi.kz/shop/p/airstar-g3000-pluse-10-1-djuim-16-gb-512-gb-chernyi-128606600/?c=750000000'
+    },
+    {
+      id: 11,
+      name: 'Catrice Soft Glam Baked Blush румяна 010 On Cloud Pink',
+      description: 'Румяна Catrice Soft Glam Baked Blush 010 On Cloud Pink придают лицу свежий и здоровый вид, обеспечивая мягкое сияние и естественный румянец.',
+      price: 3200,
+      rating: 4.5,
+      image: 'https://resources.cdn-kaspi.kz/img/m/p/p52/p08/71928435.jpeg?format=gallery-medium',
+      link: 'https://kaspi.kz/shop/p/catrice-soft-glam-baked-blush-rumjana-010-on-cloud-pink-147819804/?c=750000000'
     }
   ];
 }

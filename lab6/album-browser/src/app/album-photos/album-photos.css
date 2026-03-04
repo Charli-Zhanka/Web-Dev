@@ -1,0 +1,33 @@
+.grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+}
+
+.photo {
+  background: #0f0f0f;
+  border: 1px solid rgba(255, 47, 162, .45);
+  border-radius: 14px;
+  padding: 10px;
+  transition: .25s;
+}
+
+.photo:hover {
+  box-shadow: 0 0 18px rgba(255, 47, 162, .35);
+  transform: translateY(-2px);
+}
+
+.photo img {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+}
+
+.photo-title {
+  margin: 8px 0 0;
+  font-size: 12px;
+  color: #ff2fa2;
+  opacity: .95;
+}

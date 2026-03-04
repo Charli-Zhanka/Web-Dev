@@ -1,0 +1,15 @@
+<h2 class="title">Album Photos</h2>
+
+<p *ngIf="loading" class="muted">Loading...</p>
+<p *ngIf="!loading && errorMsg" class="error">{{ errorMsg }}</p>
+
+<div *ngIf="!loading && !errorMsg" class="grid">
+  <div class="photo" *ngFor="let p of photos">
+    <img [src]="p.thumbnailUrl" [alt]="p.title" />
+    <p class="photo-title">{{ p.title }}</p>
+  </div>
+</div>
+
+<div class="center">
+  <a class="btn ghost" [routerLink]="['/albums', albumId]">Back</a>
+</div>
