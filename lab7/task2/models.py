@@ -1,43 +1,63 @@
-class Animal:
-    def __init__(self, name, age, color):
-        self.name = name
-        self.age = age
-        self.color = color
-    
-    def speak(self):
-        return "Some sound"
-    
-    def move(self):
-        return f"{self.name} is moving"
-    
-    def __str__(self):
-        return f"Animal: {self.name}, {self.age} years old, {self.color} color"
+from abc import ABC, abstractmethod
+from datetime import datetime
 
-class Dog(Animal):
-    def __init__(self, name, age, color, breed):
-        super().__init__(name, age, color)
-        self.breed = breed
-    
-    def speak(self):
-        return "Woof! Woof!"
-    
-    def fetch(self):
-        return f"{self.name} is fetching the ball"
-    
-    def __str__(self):
-        return f"Dog: {self.name}, {self.age} years old, {self.color} {self.breed}"
 
-class Cat(Animal):
-    def __init__(self, name, age, color, indoor):
-        super().__init__(name, age, color)
-        self.indoor = indoor
-    
-    def speak(self):
-        return "Meow!"
-    
-    def scratch(self):
-        return f"{self.name} is scratching"
-    
-    def __str__(self):
-        indoor_str = "indoor" if self.indoor else "outdoor"
-        return f"Cat: {self.name}, {self.age} years old, {self.color} color, {indoor_str}"
+class Item(ABC):
+    def __init__(self, title: str, year: int, item_id: str):
+        self.title = title
+        self.year = year
+        self.item_id = item_id
+        self._is_available = True
+        self._borrow_date = None
+
+    @abstractmethod
+    def get_info(self) -> str:
+        pass
+
+    def borrow(self) -> str:
+        if self._is_available:
+            self._is_available = False
+            self._borrow_date = datetime.now()
+            return f"'{self.title}' successfully borrowed"
+        return f"'{self.title}' is currently unavailable"
+
+    def return_item(self) -> str:
+        self._is_available = True
+        self._borrow_date = None
+        return f"'{self.title}' returned"
+
+    def __str__(self) -> str:
+        status = "available" if self._is_available else "borrowed"
+        return f"{self.title} ({self.year}) - {status}"
+
+
+class Book(Item):
+    def __init__(self, title: str, year: int, item_id: str, author: str, pages: int):
+        super().__init__(title, year, item_id)
+        self.author = author
+        self.pages = pages
+
+    def get_info(self) -> str:
+        return f"Book: {self.author} - {self.title}, {self.pages} pages"
+
+    def read_sample(self) -> str:
+        return f"Reading a sample from '{self.title}'..."
+
+    def __str__(self) -> str:
+        return f"Book: {super().__str__()}, author: {self.author}"
+
+
+class Magazine(Item):
+    def __init__(self, title: str, year: int, item_id: str, issue_number: int, publisher: str):
+        super().__init__(title, year, item_id)
+        self.issue_number = issue_number
+        self.publisher = publisher
+
+    def get_info(self) -> str:
+        return f"Magazine: {self.title} #{self.issue_number}, {self.publisher}"
+
+    def browse(self) -> str:
+        return f"Browsing '{self.title}' magazine"
+
+    def __str__(self) -> str:
+        return f"Magazine: {super().__str__()}, issue #{self.issue_number}"
